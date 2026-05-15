@@ -780,8 +780,9 @@ footer {
 .portrait {
   display: grid;
   place-items: center;
-  flex: 0 0 104px;
-  min-height: 126px;
+  flex: 0 0 96px;
+  aspect-ratio: 9 / 16;
+  min-height: 170px;
   border-radius: 16px;
   background:
     linear-gradient(135deg, rgba(184, 255, 87, 0.14), transparent),
@@ -790,6 +791,7 @@ footer {
   font-family: var(--serif);
   font-size: 64px;
   font-style: italic;
+  overflow: hidden;
 }
 
 .portrait-image {
@@ -798,6 +800,31 @@ footer {
   border-radius: inherit;
   object-fit: cover;
   display: block;
+}
+
+.profile-placeholder {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.profile-placeholder strong {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-style: normal;
+  letter-spacing: 0.1em;
+}
+
+.profile-placeholder small {
+  max-width: 70px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
 }
 
 .id-card dl {
@@ -1643,7 +1670,8 @@ footer {
   }
 
   .portrait {
-    min-height: 160px;
+    width: min(100%, 150px);
+    min-height: auto;
   }
 
   .feature-card .card-core {

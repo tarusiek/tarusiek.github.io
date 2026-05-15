@@ -671,7 +671,10 @@ function App() {
                 <motion.div className="id-card outer-bezel" variants={reveal}>
                   <div className="portrait">
                     <AssetImage src={ASSETS.profile} alt="Michał Tarka" className="portrait-image">
-                      <span>M</span>
+                      <span className="profile-placeholder">
+                        <strong>9:16</strong>
+                        <small>profile photo</small>
+                      </span>
                     </AssetImage>
                   </div>
                   <dl>
