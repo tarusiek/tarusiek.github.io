@@ -1577,38 +1577,89 @@ footer {
   .container {
     width: 100%;
     max-width: 100%;
-    padding-inline: 16px;
+    padding-inline: clamp(18px, 5.1vw, 24px);
   }
 
   .section {
-    padding: 80px 0;
+    padding: 68px 0;
+  }
+
+  .nav-shell {
+    top: 12px;
+    width: calc(100% - 24px);
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 8px;
+    padding: 5px;
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(7, 9, 8, 0.82);
+    backdrop-filter: blur(22px);
+    box-shadow: 0 18px 70px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
   .hero {
     min-height: auto;
-    padding-top: 112px;
+    padding-top: 92px;
   }
 
   .brand {
-    padding-left: 12px;
+    min-width: 0;
+    gap: 9px;
+    padding: 10px;
+    font-size: 9.5px;
+    letter-spacing: 0.11em;
+  }
+
+  .brand span:last-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .lang-toggle,
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .lang-toggle {
     font-size: 10px;
   }
 
+  .menu-toggle {
+    background: rgba(255, 255, 255, 0.07);
+  }
+
   .hero-layout {
-    gap: 36px;
+    gap: 30px;
+  }
+
+  .hero-meta {
+    gap: 9px 16px;
+    margin-bottom: 24px;
+    font-size: 8.8px;
+    letter-spacing: 0.12em;
   }
 
   .hero h1 {
-    max-width: 100%;
-    font-size: clamp(42px, 12.3vw, 54px);
-    line-height: 0.96;
-    letter-spacing: -0.035em;
-    overflow-wrap: normal;
+    max-width: min(100%, 320px);
+    font-size: clamp(32px, 9.2vw, 37px);
+    line-height: 1.04;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
   }
 
   .hero-text {
-    max-width: 100%;
-    font-size: 16px;
+    max-width: 33ch;
+    margin-top: 22px;
+    color: rgba(244, 245, 237, 0.68);
+    font-size: 14.5px;
+    line-height: 1.64;
+  }
+
+  .hero-actions {
+    gap: 10px;
+    margin-top: 24px;
   }
 
   .hero-actions .button,
@@ -1618,19 +1669,46 @@ footer {
     justify-content: space-between;
   }
 
+  .button {
+    min-height: 48px;
+    gap: 12px;
+    padding: 6px 8px 6px 18px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .button-orbit {
+    width: 34px;
+    height: 34px;
+  }
+
   .hero-visual {
-    min-height: 360px;
+    min-height: 270px;
   }
 
   .hero-visual-core {
-    min-height: 344px;
+    min-height: 254px;
+    border-radius: 22px;
+  }
+
+  .terminal {
+    width: min(310px, 82%);
+    border-radius: 16px;
+  }
+
+  .terminal-lines {
+    gap: 10px;
+    padding: 22px;
+  }
+
+  .terminal-lines .accent-block {
+    height: 84px;
   }
 
   .sensor-card {
     display: none;
   }
 
-  .stats,
   .featured-grid,
   .contact-meta,
   .services-grid,
@@ -1638,20 +1716,46 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 42px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.025);
+  }
+
   .stat,
   .stat:first-child,
   .stat:last-child {
-    padding: 22px 0;
+    padding: 18px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
 
-  .stat:last-child {
+  .stat:nth-child(odd) {
+    border-right: 1px solid var(--line);
+  }
+
+  .stat:nth-child(n + 3) {
     border-bottom: 0;
+  }
+
+  .stat strong {
+    font-size: clamp(34px, 10vw, 42px);
+  }
+
+  .stat small {
+    margin-top: 9px;
+    font-size: 9.5px;
+    line-height: 1.35;
   }
 
   .section-label {
     grid-template-columns: auto 1fr;
+    margin-bottom: 34px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
   }
 
   .section-line,
@@ -1660,7 +1764,13 @@ footer {
   }
 
   .about-points li {
-    grid-template-columns: 44px 1fr;
+    grid-template-columns: 38px 1fr;
+    gap: 18px;
+    padding: 22px 0;
+  }
+
+  .about-points p {
+    font-size: 16px;
   }
 
   .about-points em {
@@ -1669,15 +1779,83 @@ footer {
 
   .id-card {
     flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 30px;
   }
 
   .portrait {
-    width: min(100%, 150px);
+    width: min(100%, 138px);
     min-height: auto;
   }
 
+  .about-intro h2,
+  .section-heading h2,
+  .stack-copy h2,
+  .contact-card h2 {
+    font-size: clamp(34px, 9.8vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.026em;
+  }
+
+  .section-heading,
+  .section-heading.split {
+    margin-bottom: 34px;
+  }
+
+  .section-heading p,
+  .stack-copy p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .services-grid,
+  .featured-grid,
+  .process-grid {
+    gap: 14px;
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+
+  .service-card .card-core {
+    padding: 22px;
+  }
+
+  .glyph {
+    width: 58px;
+    height: 58px;
+  }
+
   .feature-card .card-core {
-    min-height: 520px;
+    min-height: 470px;
+    padding: 22px;
+  }
+
+  .feature-visual {
+    min-height: 230px;
+    margin: 18px 0;
+    border-radius: 18px;
+  }
+
+  .mockup-image {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius: 14px;
+  }
+
+  .feature-card h3 {
+    font-size: 26px;
+    line-height: 1.08;
+  }
+
+  .feature-card p,
+  .project-row p,
+  .service-card p,
+  .process-card p {
+    font-size: 14px;
+    line-height: 1.62;
   }
 
   .feature-row,
@@ -1688,7 +1866,8 @@ footer {
 
   .project-row {
     grid-template-columns: 1fr auto;
-    gap: 12px 20px;
+    gap: 12px 18px;
+    padding: 22px 0;
   }
 
   .project-num,
@@ -1703,6 +1882,18 @@ footer {
   .stack-group {
     grid-template-columns: 1fr;
     gap: 16px;
+    padding: 22px 0;
+  }
+
+  .chips span,
+  .tags span {
+    font-size: 9.5px;
+    padding: 6px 9px;
+  }
+
+  .process-card {
+    min-height: auto;
+    padding: 24px;
   }
 
   .dash-body {
@@ -1714,7 +1905,19 @@ footer {
   }
 
   .contact-core {
-    padding: 36px 22px;
+    padding: 30px 20px;
+  }
+
+  .menu-panel {
+    gap: 10px;
+    width: calc(100% - 32px);
+  }
+
+  .menu-panel button {
+    padding: 20px;
+    border-radius: 22px;
+    font-size: clamp(30px, 8vw, 46px);
+    line-height: 0.95;
   }
 
   footer {

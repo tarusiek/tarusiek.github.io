@@ -22,12 +22,11 @@ const ASSETS = {
 const linkedInProfileUrl = "https://www.linkedin.com/in/michalkaroltarka/";
 
 const reveal = {
-  hidden: { opacity: 0, y: 46, filter: "blur(12px)" },
+  hidden: { opacity: 0, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.9, ease },
+    transition: { type: "spring", stiffness: 96, damping: 24, mass: 0.7 },
   },
 };
 
@@ -323,7 +322,7 @@ function Nav({ t, language, onLanguageToggle }) {
         className="nav-shell"
         initial={{ x: "-50%", y: -28, opacity: 0 }}
         animate={{ x: "-50%", y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease }}
+        transition={{ type: "spring", stiffness: 95, damping: 24, mass: 0.8 }}
       >
         <button className="brand" onClick={() => scrollTo("top")} aria-label="Back to top">
           <span className="brand-dot" />
@@ -374,6 +373,7 @@ function Nav({ t, language, onLanguageToggle }) {
                 <motion.button
                   key={id}
                   variants={reveal}
+                  whileTap={{ scale: 0.985 }}
                   onClick={() => {
                     setOpen(false);
                     setTimeout(() => scrollTo(id), 120);
